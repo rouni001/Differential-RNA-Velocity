@@ -31,7 +31,17 @@ The code is organized into functions that:
 
 ### Methods Description
 
-#### `get_df_dv_per_region(name, ds, regions, adata, debug, p_lim)`
+#### `get_df_dv_per_region`
+```
+get_df_dv_per_region(
+  name,
+  ds,
+  regions,
+  adata,
+  debug,
+  p_lim
+)
+```
 
 - **Purpose:** Iterates over given regions and compiles DVG results from each region into a single DataFrame.
 - **Parameters:**
@@ -43,8 +53,19 @@ The code is organized into functions that:
   - `p_lim`: p-value threshold for significance.
 - **Returns:** Combined DataFrame with region-specific DVGs.
 
-#### `get_diff_velo_genes(name, ds, region, adata, debug=False, p_lim=1e-9, plot=True, save_plot_path='difference_distribution.png')`
-
+#### `get_diff_velo_genes`
+```
+get_diff_velo_genes(
+  name,
+  ds,
+  region,
+  adata,
+  debug=False,
+  p_lim=1e-9,
+  plot=True,
+  save_plot_path='difference_distribution.png'
+)
+```
 - **Purpose:** Identifies DVGs within a specific region using the Welch's t-test.
 - **Details:**
   - Extracts the RNA velocity layer from `adata`.
@@ -56,7 +77,21 @@ The code is organized into functions that:
   - Optionally plots the distribution of the difference metric.
 - **Returns:** DataFrame of significant DVGs (genes passing the adjusted p-value cutoff).
 
-#### `generate_interactive_clustermap_with_dendrogram(ds, df, sub_folder_name, value_col='adjusted_p_value', gene_col='gene', region_col='region', output_dir='output', cmap='Viridis', width=1200, height=800)`
+#### `generate_interactive_clustermap_with_dendrogram`
+```
+generate_interactive_clustermap_with_dendrogram(
+  ds,
+  df,
+  sub_folder_name,
+  value_col='adjusted_p_value',
+  gene_col='gene',
+  region_col='region',
+  output_dir='output',
+  cmap='Viridis',
+  width=1200,
+  height=800
+)
+```
 
 - **Purpose:** Creates an interactive clustermap with dendrograms to visualize DVG significance across regions.
 - **Procedure:**
@@ -68,7 +103,12 @@ The code is organized into functions that:
   6. Saves the interactive plot as an HTML file.
 - **Returns:** No direct output; the function displays and saves the interactive figure.
 
-#### `get_adata(idx)`
+#### `get_adata`
+```
+get_adata(
+  idx
+)
+```
 
 - **Purpose:** Loads annotated data matrices from provided file paths.
 - **Details:**
@@ -76,8 +116,13 @@ The code is organized into functions that:
   - Reads the corresponding `.h5ad` file.
 - **Returns:** A tuple containing the dataset name and the AnnData object.
 
-#### `run_analysis(plim_lowest, plim_name)`
-
+#### `run_analysis`
+```
+run_analysis(
+  plim_lowest,
+  plim_name
+)
+```
 - **Purpose:** Automates the analysis across multiple datasets.
 - **Procedure:**
   - Iterates through pre-defined datasets.
